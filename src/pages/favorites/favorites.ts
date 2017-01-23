@@ -12,8 +12,7 @@ export class FavoritesPage {
   quotes: Quote[];
 
   constructor(private quotesService: QuotesService,
-    private modalCtrl: ModalController,
-    private menuCtrl: MenuController) {}
+    private modalCtrl: ModalController) {}
 
   ionViewWillEnter() {
     this.quotes = this.quotesService.getFavoriteQuotes();
@@ -40,11 +39,6 @@ export class FavoritesPage {
       return quoteEl.id== quote.id;
     });
     this.quotes.splice(foundQuote, 1);
-  }
-
-  onOpenMenu() {
-    console.log("opening menu");
-    this.menuCtrl.open();
   }
 
 }
