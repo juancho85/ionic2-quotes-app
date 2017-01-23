@@ -10,7 +10,6 @@ import {NavController} from "ionic-angular";
 })
 export class LibraryPage implements OnInit {
 
-  quotesPage: QuotesPage;
   quoteCollection: {category: string, quotes: Quote[], icon: string}[];
 
   constructor(private navCtrl: NavController) {}

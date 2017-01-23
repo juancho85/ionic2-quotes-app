@@ -12,9 +12,7 @@
   <ion-list>
     <button ion-item
             *ngFor="let quoteGroup of quoteCollection"
-            [navPush]="quotesPage"
-            [navParams]="quoteGroup"
-            >
+            (click)="onClickQuoteGroup(quoteGroup)">
       <ion-icon [name]="quoteGroup.icon" item-left></ion-icon>
       <h2>{{ quoteGroup.category | uppercase }}</h2>
       <p>{{ quoteGroup.quotes.length}} Quotes</p>
