@@ -16,5 +16,9 @@ export class QuotesPage implements OnInit {
     this.quoteGroup = this.navParams.data;
   }
 
+  onAddToFavorite(quote: Quote){
+    console.log("adding to favorite");
+  }
+
 
 }
