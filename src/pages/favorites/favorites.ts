@@ -23,18 +23,22 @@ export class FavoritesPage {
     modal.present();
     modal.onDidDismiss((remove: boolean) => {
       if(remove) {
-        this.quotesService.removeQuoteFromFavorites(quote);
-        // this.quotes = this.quotesService.getFavoriteQuotes();
-        const foundQuote = this.quotes.findIndex((quoteEl: Quote) => {
-          return quoteEl.id== quote.id;
-        });
-        this.quotes.splice(foundQuote, 1);
+        this.onRemoveFromFavorites(quote);
       }
     });
     // modal.willLeave.subscribe(
     //   //will not pass the data!!!
     //   (remove: boolean) => console.log(remove)
     // );
+  }
+
+  onRemoveFromFavorites(quote: Quote) {
+    this.quotesService.removeQuoteFromFavorites(quote);
+    // this.quotes = this.quotesService.getFavoriteQuotes();
+    const foundQuote = this.quotes.findIndex((quoteEl: Quote) => {
+      return quoteEl.id== quote.id;
+    });
+    this.quotes.splice(foundQuote, 1);
   }
 
 }
