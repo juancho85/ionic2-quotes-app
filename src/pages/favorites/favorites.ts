@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, NavParams, ModalController} from 'ionic-angular';
+import {ModalController, MenuController} from 'ionic-angular';
 import {Quote} from "../../data/quote.interface";
 import {QuotesService} from "../../services/quotes";
 import {QuotePage} from "../quote/quote";
@@ -12,7 +12,8 @@ export class FavoritesPage {
   quotes: Quote[];
 
   constructor(private quotesService: QuotesService,
-    private modalCtrl: ModalController) {}
+    private modalCtrl: ModalController,
+    private menuCtrl: MenuController) {}
 
   ionViewWillEnter() {
     this.quotes = this.quotesService.getFavoriteQuotes();
@@ -39,6 +40,11 @@ export class FavoritesPage {
       return quoteEl.id== quote.id;
     });
     this.quotes.splice(foundQuote, 1);
+  }
+
+  onOpenMenu() {
+    console.log("opening menu");
+    this.menuCtrl.open();
   }
 
 }
